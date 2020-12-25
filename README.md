@@ -19,9 +19,9 @@ Software used:
 After obtaining and assembling the hardware it's just a 15 minutes project...
 
 * Download `CentOS-Userland-7-aarch64-RaspberryPI-Minimal-4-2009-sda.raw.xz` from [CentOS][5]
-* Burn the image with [Etcher][7] to the SDX
-* Boot your PI with the SDX and DHCP enabled plugged Ethernet plugged
-* Optain your PI IP and configure your PI via `cloud-init`
+* Burn the image with [Etcher][6] to the SDX
+* Boot your PI with the SDX and DHCP enabled plugged Ethernet
+* Optain your PI IP and configure the PI via `cloud-init`
 ```bash
 git clone https://github.com/iaean/rap/; cd rap
 PI=192.168.47.11
@@ -31,7 +31,7 @@ scp cloud.cfg root@$PI:/etc/cloud/cloud.cfg.d/10_defaults.cfg
 ssh -l root $PI -- reboot # password: centos
 ```
 * [Create][70] your RIPE NCC account
-* [Register][71] your probe with key from `/var/atlas-probe/etc/probe_key.pub`
+* [Register][71] your probe with key `/var/atlas-probe/etc/probe_key.pub`
 
 ### Notes
 
