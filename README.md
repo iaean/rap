@@ -81,7 +81,7 @@ All your contributions are welcome. So, don't hesitate to fork and send your pul
 [22]: https://github.com/RIPE-NCC/ripe-atlas-probe-doc
 [23]: https://github.com/iaean/rap/releases/tag/init
 
-[70]: https://atlas.ripe.net/registration/
+[70]: https://access.ripe.net/registration/
 [71]: https://atlas.ripe.net/apply/swprobe/
 
 [90]: https://github.com/raspberrypi/linux/issues/2937
