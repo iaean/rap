@@ -24,11 +24,14 @@ After obtaining and assembling the hardware it's just a 15 minutes project...
 * Optain your PI IP and configure the PI via `cloud-init`
 ```bash
 git clone https://github.com/iaean/rap/; cd rap
-PI=192.168.47.11
+export PI=192.168.47.11
 ssh -l root $PI -- yum -y install cloud-init # password: centos
 # review, edit, adjust cloud.cfg
-scp cloud.cfg root@$PI:/etc/cloud/cloud.cfg.d/10_defaults.cfg
+scp cloud.cfg root@$PI:/etc/cloud/cloud.cfg.d/10_defaults.cfg # password: centos
 ssh -l root $PI -- reboot # password: centos
+# wait until: The system is finally up...
+ssh -l pi $PI -- cat /var/atlas-probe/etc/probe_key.pub
+ssh -l pi $PI -- sudo reboot
 ```
 * [Create][70] your RIPE NCC account
 * [Register][71] your probe with key `/var/atlas-probe/etc/probe_key.pub`
@@ -38,17 +41,19 @@ ssh -l root $PI -- reboot # password: centos
 * RIPE NCC provides CentOS RPM packages for [x86_64][20] only. The software is based on [busybox][21]. We had to (cross-)[compile and package][22] for our Raspberry Pi target architecture. RPM is [provided][23].
 
 * Linux driver for Microchip 7800 USB Ethernet (lan78xx) on RasPi 3B+
-has bugs with proper carrier handling in `/sys/class/net/eth0/carrier` when cable is connected ([#2937][90], [#3939][91]). This impacts all proper userland network management. Touching the device with `ethtool` when kernel spuriously reports `NO_CARRIER` can probably solve the issue.
+has bugs with proper carrier handling in `/sys/class/net/eth0/carrier` when cable is connected ([#2937][90], [#3939][91]). This impacts all proper userland network management. Touching the device with `ethtool` when kernel spuriously reports `NO_CARRIER` can probably solve the issue. That's why we go with NetworkManager.
 
 * Wifi and bluetooth is disabled to potentially save some milliwatt.
 
 ### Todo
 
-- [ ] automate probe registration
+- [ ] automate Atlas probe registration
 - [ ] chrooted restricted shell for remote logins
 - [ ] HTTP webhook based trap sink
-- [ ] webserver redirects to Atlas
-- [ ] dockerize the probe stuff
+- [ ] local webserver
+- [ ] dockerize the Atlas stuff
+- [ ] integrate BNetzA [breitbandmessung.de][10]
+- [ ] integrate Ookla [speedtest.net][9]
 
 ### Contribution
 
@@ -67,6 +72,9 @@ All your contributions are welcome. So, don't hesitate to fork and send your pul
 [7]: https://github.com/balena-io/etcher/releases/download/v1.5.113/balenaEtcher-Portable-1.5.113.exe
 
 [8]: https://cloudinit.readthedocs.io/
+
+[9]: https://www.speedtest.net/apps/cli
+[10]: https://breitbandmessung.de/ueber-den-test
 
 [20]: https://ftp.ripe.net/ripe/atlas/software-probe/
 [21]: https://www.busybox.net/
