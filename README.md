@@ -21,7 +21,7 @@ After obtaining and assembling the hardware it's just a 15 minutes project...
 * Download `CentOS-Userland-7-aarch64-RaspberryPI-Minimal-4-2009-sda.raw.xz` from [CentOS][5]
 * Burn the image with [Etcher][6] to the SDX
 * Boot your PI with the SDX and DHCP enabled plugged Ethernet
-* Optain your PI IP and configure the PI via `cloud-init`
+* Obtain your PI IP and configure the PI via `cloud-init`
 ```bash
 git clone https://github.com/iaean/rap/; cd rap
 export PI=192.168.47.11
