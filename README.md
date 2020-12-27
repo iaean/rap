@@ -23,14 +23,23 @@ After obtaining and assembling the hardware it's just a 15 minutes project...
 * Boot your PI with the SDX and DHCP enabled plugged Ethernet
 * Obtain your PI IP and configure the PI via `cloud-init`
 ```bash
-git clone https://github.com/iaean/rap/; cd rap
 export PI=192.168.47.11
+
+git clone https://github.com/iaean/rap/; cd rap
+
+# install cloud-init
 ssh -l root $PI -- yum -y install cloud-init # password: centos
-# review, edit, adjust cloud.cfg
+
+# review, edit, adjust, apply cloud.cfg
 scp cloud.cfg root@$PI:/etc/cloud/cloud.cfg.d/10_defaults.cfg # password: centos
+
+# cloud-init reboot
 ssh -l root $PI -- reboot # password: centos
+
 # wait until: The system is finally up...
 ssh -l pi $PI -- cat /var/atlas-probe/etc/probe_key.pub
+
+# root access is disabled
 ssh -l pi $PI -- sudo reboot
 ```
 * [Create][70] your RIPE NCC account
@@ -38,7 +47,10 @@ ssh -l pi $PI -- sudo reboot
 * Start [Configure][72] your RIPE Atlas probe(s) and measurements
   * Maybe you don't wanna publicly share your probe
 ```bash
+# docker is already there
 ssh -l pi $PI -- docker run hello-world
+
+# run a speedtest
 ssh -l pi $PI -- speedtest --accept-license --accept-gdpr --selection-details
 ```
 
