@@ -45,7 +45,7 @@ ssh -l pi $PI -- sudo reboot
 * [Create][70] your RIPE NCC account
 * [Register][71] your probe with key `/var/atlas-probe/etc/probe_key.pub`
 * Start [Configure][72] your RIPE Atlas probe(s) and measurements
-  * Maybe you don't wanna publicly share your probe
+  * Maybe you don't wanna publicly share your probe as enabled by default
 ```bash
 # docker is already there
 ssh -l pi $PI -- docker run hello-world
@@ -53,6 +53,8 @@ ssh -l pi $PI -- docker run hello-world
 # run a speedtest
 ssh -l pi $PI -- speedtest --accept-license --accept-gdpr --selection-details
 ```
+* Atlas can provide a DNS for your probe. Disabled by default.  
+  Maybe you wanna use the feature and also forward a port on your CPE to SSH to enable remote login.
 
 ### Notes
 
