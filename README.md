@@ -32,6 +32,7 @@ ssh -l root $PI -- reboot # password: centos
 # wait until: The system is finally up...
 ssh -l pi $PI -- cat /var/atlas-probe/etc/probe_key.pub
 ssh -l pi $PI -- sudo reboot
+ssh -l pi $PI -- speedtest --accept-license --accept-gdpr --selection-details
 ```
 * [Create][70] your RIPE NCC account
 * [Register][71] your probe with key `/var/atlas-probe/etc/probe_key.pub`
@@ -43,7 +44,7 @@ ssh -l pi $PI -- sudo reboot
 * Linux driver for Microchip 7800 USB Ethernet (lan78xx) on RasPi 3B+
 has bugs with proper carrier handling in `/sys/class/net/eth0/carrier` when cable is connected ([#2937][90], [#3939][91]). This impacts all proper userland network management. Touching the device with `ethtool` when kernel spuriously reports `NO_CARRIER` can probably solve the issue. That's why we go with NetworkManager.
 
-* Wifi and bluetooth is disabled to potentially save some milliwatt.
+* Wifi and bluetooth is disabled to potentially save some milliwatt. Ordinary USB ports on your CPE are unfortunately not sufficient to provide stable power.
 
 ### Todo
 
