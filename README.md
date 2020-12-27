@@ -32,10 +32,14 @@ ssh -l root $PI -- reboot # password: centos
 # wait until: The system is finally up...
 ssh -l pi $PI -- cat /var/atlas-probe/etc/probe_key.pub
 ssh -l pi $PI -- sudo reboot
-ssh -l pi $PI -- speedtest --accept-license --accept-gdpr --selection-details
 ```
 * [Create][70] your RIPE NCC account
 * [Register][71] your probe with key `/var/atlas-probe/etc/probe_key.pub`
+* (optional) [Configure][72] your RIPE Atlas probe
+```bash
+ssh -l pi $PI -- docker run hello-world
+ssh -l pi $PI -- speedtest --accept-license --accept-gdpr --selection-details
+```
 
 ### Notes
 
@@ -84,6 +88,7 @@ All your contributions are welcome. So, don't hesitate to fork and send your pul
 
 [70]: https://access.ripe.net/registration
 [71]: https://atlas.ripe.net/apply/swprobe/
+[72]: https://atlas.ripe.net/probes/
 
 [90]: https://github.com/raspberrypi/linux/issues/2937
 [91]: https://github.com/raspberrypi/linux/issues/3939
