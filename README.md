@@ -35,7 +35,8 @@ ssh -l pi $PI -- sudo reboot
 ```
 * [Create][70] your RIPE NCC account
 * [Register][71] your probe with key `/var/atlas-probe/etc/probe_key.pub`
-* (optional) [Configure][72] your RIPE Atlas probe(s)
+* Start [Configure][72] your RIPE Atlas probe(s) and measurements
+  * Maybe you don't wanna publicly share your probe
 ```bash
 ssh -l pi $PI -- docker run hello-world
 ssh -l pi $PI -- speedtest --accept-license --accept-gdpr --selection-details
