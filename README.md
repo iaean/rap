@@ -65,6 +65,8 @@ has bugs with proper carrier handling in `/sys/class/net/eth0/carrier` when cabl
 
 * Wifi and bluetooth is disabled to potentially save some milliwatt. Ordinary USB ports on your CPE are unfortunately not sufficient to provide stable power.
 
+* Regarding docker: You are on Pi. You are on `linux/arm*`. Unfortunately [Multi-arch images][15] are not standard today: `WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested`. Open an issue with the feature request to support [Multi-arch builds][16] to the maintainers of your favorite docker project.
+
 ### Todo
 
 - [ ] automate Atlas probe registration
@@ -95,6 +97,9 @@ All your contributions are welcome. So, don't hesitate to fork and send your pul
 
 [9]: https://www.speedtest.net/apps/cli
 [10]: https://breitbandmessung.de/ueber-den-test
+
+[15]: https://www.docker.com/blog/multi-arch-images/
+[16]: https://www.docker.com/blog/multi-arch-build-and-images-the-simple-way/
 
 [20]: https://ftp.ripe.net/ripe/atlas/software-probe/
 [21]: https://www.busybox.net/
