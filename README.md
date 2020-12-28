@@ -66,7 +66,9 @@ has bugs with proper carrier handling in `/sys/class/net/eth0/carrier` when cabl
 * Wifi and bluetooth is disabled to potentially save some milliwatt. Ordinary USB ports on your CPE are unfortunately not sufficient to provide stable power.
 
 * Regarding docker...
-  * You are on Pi. You are on `linux/arm*`. Unfortunately [Multi-arch images][15] are not standard today: `WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested`. Open an issue with the feature request to support [Multi-arch builds][16] to the maintainers of your favorite docker project.
+  * You are on Pi. You are on `linux/arm*`. Unfortunately [Multi-arch images][15] are not standard today:  
+  `WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested`.  
+  Open an issue with the feature request to support [Multi-arch builds][16] to the maintainers of your favorite docker project.
   * We are running `dockerd` with `--userland-proxy=false`.
 
 ### Todo
