@@ -1,4 +1,4 @@
-## Raspberry Pi RIPE Atlas Probe
+# Raspberry Pi RIPE Atlas Probe
 
 You can join the [RIPE Atlas][0] project with your own probe based on [Raspberry Pi][4] now, because the RIPE NCC folks start providing their stuff as [software][1].
 
@@ -56,7 +56,7 @@ ssh -l pi $PI -- speedtest --accept-license --accept-gdpr --selection-details
 * Atlas can provide a DNS for your probe. Disabled by default.  
   Maybe you wanna use the feature and also forward a port on your CPE to SSH to enable remote login.
 
-### Notes
+## Notes
 
 * RIPE NCC provides CentOS RPM packages for [x86_64][20] only. The software is based on [busybox][21]. We had to (cross-)[compile and package][22] for our Raspberry Pi target architecture. RPM is [provided][23].
 
@@ -69,9 +69,9 @@ has bugs with proper carrier handling in `/sys/class/net/eth0/carrier` when cabl
   * You are on Pi. You are on `linux/arm*`. Unfortunately [Multi-arch images][15] are not standard today:  
   `WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested`.  
   Open an issue with the feature request to support [Multi-arch builds][16] to the maintainers of your favorite docker project.
-  * We are running `dockerd` with `--userland-proxy=false`.
+  * We are running `dockerd` with `--userland-proxy=false` to improve IPv6 security.
 
-### Todo
+## Todo
 
 - [ ] automate Atlas probe registration
 - [ ] chrooted restricted shell for remote logins
@@ -81,7 +81,7 @@ has bugs with proper carrier handling in `/sys/class/net/eth0/carrier` when cabl
 - [ ] integrate BNetzA [breitbandmessung.de][10]
 - [ ] integrate Ookla [speedtest.net][9]
 
-### Contribution
+## Contribution
 
 All your contributions are welcome. So, don't hesitate to fork and send your pull requests.
 
