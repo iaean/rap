@@ -73,13 +73,14 @@ has bugs with proper carrier handling in `/sys/class/net/eth0/carrier` when cabl
 
 ## Todo
 
-- [ ] automate Atlas probe registration
-- [ ] chrooted restricted shell for remote logins
-- [ ] HTTP webhook based trap sink
-- [ ] local webserver
+- [ ] join outbound inband tunneling services like [inlets][12] or [WireGuard][11]
 - [ ] dockerize the Atlas stuff
+- [ ] chrooted restricted shell for remote logins
 - [ ] integrate BNetzA [breitbandmessung.de][10]
 - [ ] integrate Ookla [speedtest.net][9]
+- [ ] local webserver
+- [ ] automate Atlas probe registration
+- [ ] HTTP webhook based trap sink
 
 ## Contribution
 
@@ -101,6 +102,9 @@ All your contributions are welcome. So, don't hesitate to fork and send your pul
 
 [9]: https://www.speedtest.net/apps/cli
 [10]: https://breitbandmessung.de/ueber-den-test
+
+[11]: https://www.wireguard.com
+[12]: https://github.com/inlets
 
 [15]: https://www.docker.com/blog/multi-arch-images/
 [16]: https://www.docker.com/blog/multi-arch-build-and-images-the-simple-way/
